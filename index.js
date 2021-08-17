@@ -27,7 +27,7 @@ const GetMatchingPlaces = input=>{
 }
 
 
-const UpdateListUI = (placesSuggestionsBasedOnInput)=>{
+const UpdateListUI = (placesSuggestionsBasedOnInput, inputText)=>{
   suggestions.innerHTML = placesSuggestionsBasedOnInput.map(place =>{
     const regexp = new RegExp(inputText, 'gi');
     const highlightText = place.replace(regexp, `<span class="highlight">${inputText}</span>`);
@@ -39,7 +39,7 @@ const UpdateListUI = (placesSuggestionsBasedOnInput)=>{
 const UpdateList = (inputText)=>{
   suggestions.innerHTML = '';
   const placesSuggestionsBasedOnInput = GetMatchingPlaces(inputText);
-  UpdateListUI(placesSuggestionsBasedOnInput);
+  UpdateListUI(placesSuggestionsBasedOnInput, inputText);
 
 }
 
